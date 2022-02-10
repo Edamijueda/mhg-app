@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mhg/core/models/mhg_base_view_model.dart';
 import 'package:mhg/ui/theme/colours.dart';
 import 'package:mhg/ui/theme/typography.dart';
 import '../../../constants.dart';
+import '../reusable_views_components.dart';
 
 //UserAccessViewModel? userAccessViewModel;
 final MhgBaseViewModel _mhgBaseViewModel = MhgBaseViewModel();
@@ -11,7 +11,7 @@ final MhgBaseViewModel _mhgBaseViewModel = MhgBaseViewModel();
 const IconData emailIcon = Icons.mail_outline_rounded;
 const IconData passwordIcon = Icons.lock_outline_rounded;
 const IconData nameIcon = Icons.person;
-const IconData usernameIcon = Icons.account_circle;
+const IconData userAccountIcon = Icons.account_circle_outlined;
 const IconData helpIcon = Icons.help;
 const IconData dobIcon = Icons.cake;
 const IconData validIdIcon = Icons.badge;
@@ -19,6 +19,14 @@ const IconData businessNameIcon = Icons.business_center;
 const IconData businessLNIcon = Icons.pin;
 const IconData menuIcon = Icons.menu_open;
 const IconData cartIcon = Icons.shopping_cart_outlined;
+const IconData searchIcon = Icons.search_rounded;
+const IconData doubleArrowIcon = Icons.double_arrow;
+const IconData moreOptionIcon = Icons.more_horiz;
+const IconData homeIcon = Icons.home_outlined;
+const IconData orderIcon = Icons.shopping_bag_outlined;
+const IconData saveItemIcon = Icons.save_outlined;
+const IconData helpIconOutline = Icons.help_outline;
+const IconData logoutIcon = Icons.logout;
 
 /*const Padding symPaddingVert9Hor36 = Padding(
   padding: EdgeInsets.symmetric(
@@ -62,7 +70,8 @@ Icon buildIcon({
   );
 }
 
-Widget buildCustomTextField({
+// Dis should be deleted, if same is found in reusable_views_components
+/*Widget buildCustomTextField({
   required String hintText,
   required Widget prefixIcon,
   TextInputType? textInputType,
@@ -82,13 +91,14 @@ Widget buildCustomTextField({
       ),
     ),
   );
-}
+}*/
 
 ///////////////////////////////////////////////////////////////////////
 
 Widget buildTabRowLabel({
   required String textLabel,
-  required TextStyle style,
+  //required TextStyle style,
+  TextStyle? style,
   IconButton? includeIconBtn,
 }) {
   return ListTile(
@@ -142,7 +152,7 @@ const List<String> retailerTVHintTexts = [
 
 const List<IconData> customerTVIcons = [
   nameIcon,
-  usernameIcon,
+  userAccountIcon,
   emailIcon,
   dobIcon,
   passwordIcon,
@@ -175,28 +185,38 @@ Column buildTabBarView({
   return Column(
     children: <Widget>[
       buildCustomTextField(
+        sizeOfTF: sizeW326H50,
+        tfPadding: symPaddingVert8Hor36,
         hintText: hintTextList[0],
         prefixIcon: buildIcon(
             icon: prefixIconList[0], color: grey, size: prefixIconSize),
         textInputType: textInputTypeList![0],
       ),
       buildCustomTextField(
+        sizeOfTF: sizeW326H50,
+        tfPadding: symPaddingVert8Hor36,
         hintText: hintTextList[1],
         prefixIcon: buildIcon(
             icon: prefixIconList[1], color: grey, size: prefixIconSize),
       ),
       buildCustomTextField(
+        sizeOfTF: sizeW326H50,
+        tfPadding: symPaddingVert8Hor36,
         hintText: hintTextList[2],
         prefixIcon: buildIcon(
             icon: prefixIconList[2], color: grey, size: prefixIconSize),
         textInputType: textInputTypeList[1],
       ),
       buildCustomTextField(
+        sizeOfTF: sizeW326H50,
+        tfPadding: symPaddingVert8Hor36,
         hintText: hintTextList[4],
         prefixIcon: buildIcon(
             icon: prefixIconList[4], color: grey, size: prefixIconSize),
       ),
       buildCustomTextField(
+        sizeOfTF: sizeW326H50,
+        tfPadding: symPaddingVert8Hor36,
         hintText: hintTextList[3],
         prefixIcon: buildIcon(
             icon: prefixIconList[3], color: grey, size: prefixIconSize),
@@ -204,8 +224,8 @@ Column buildTabBarView({
       ),
       Container(
         margin: symPaddingVert8Hor36,
-        width: size.width,
-        height: size.height,
+        width: sizeW326H50.width,
+        height: sizeW326H50.height,
         decoration: BoxDecoration(
           color: white,
           borderRadius: BorderRadius.all(
@@ -312,7 +332,7 @@ Row buildRowWithTextAndTB({
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      customTextPlusStyle(text: textLabel, textStyle: textStyleWhiteNormal14),
+      customTextPlusStyle(text: textLabel, textStyle: textStyle14FW400White),
       TextButton(
         onPressed: () =>
             _mhgBaseViewModel.validateScreenToNavTo(eBText: textOnTB),
@@ -336,7 +356,8 @@ Row buildRowWithTextAndTB({
 
 Text customTextPlusStyle({
   required String text,
-  required TextStyle textStyle,
+  //required TextStyle textStyle,
+  TextStyle? textStyle,
 }) {
   return Text(
     text,
@@ -378,12 +399,12 @@ class MhgAppBarTitleWidget extends StatelessWidget {
           image: ExactAssetImage(
             'lib/assets/app_icon.png',
           ),
-          height: 26.0,
-          width: 26.0,
+          height: 20.0, //26.0 is used before
+          width: 20.0,
         ),
         Text(
           displayedAppName,
-          style: textStyleWhiteBold14,
+          style: textStyle14Bold,
         ),
       ],
     );
@@ -419,7 +440,7 @@ TabBar build2ColumnTabBar({
 }) {
   return TabBar(
     labelPadding: EdgeInsets.only(left: 32.0, right: 32.0),
-    //padding: EdgeInsets.symmetric(horizontal: 16.0),
+    padding: EdgeInsets.only(bottom: 10.0),
     tabs: <Widget>[
       Center(
         child: Tab(
@@ -427,10 +448,6 @@ TabBar build2ColumnTabBar({
             textLabel: text4column1,
             style: textStyle,
             includeIconBtn: iconButton,
-            /*includeIconBtn: buildIconButton(
-              icon: buildIcon(icon: helpIcon, color: white, size: iconBtnSize),
-              onClickPrintOnConsole: customerIconBtnHelpText,
-            ),*/
           ),
         ),
       ),
@@ -440,10 +457,6 @@ TabBar build2ColumnTabBar({
             textLabel: text4column2,
             style: textStyle,
             includeIconBtn: iconButton,
-            /*includeIconBtn: buildIconButton(
-              icon: buildIcon(icon: helpIcon, color: white, size: iconBtnSize),
-              onClickPrintOnConsole: retailerIconBtHelpText,
-            ),*/
           ),
         ),
       ),

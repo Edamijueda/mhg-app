@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:mhg/constants.dart';
 import 'package:mhg/ui/theme/colours.dart';
 import 'package:mhg/ui/theme/typography.dart';
@@ -44,8 +43,8 @@ ThemeData getThemes() {
       style: ElevatedButton.styleFrom(
         primary: primaryColour,
         onPrimary: onPrimaryColour,
-        textStyle: elevatedButtonTextStyle,
-        fixedSize: size,
+        textStyle: textStyle16Bold,
+        fixedSize: sizeW326H50,
         shape: rRectWithCircularBR10,
       ),
     ),

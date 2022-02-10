@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mhg/constants.dart';
 import 'package:mhg/core/models/customer_home_view_model.dart';
+import 'package:mhg/core/models/mhg_base_view_model.dart';
 import 'package:mhg/ui/theme/colours.dart';
 import 'package:mhg/ui/theme/typography.dart';
 import 'package:stacked/stacked.dart';
-import 'helpers/reusable_widgets.dart';
+import '../helpers/reusable_widgets.dart';
+import '../reusable_views_components.dart';
+import 'customer_home_components.dart';
 
 class CustomerHomeView extends StatefulWidget {
   const CustomerHomeView({Key? key}) : super(key: key);
@@ -14,6 +17,8 @@ class CustomerHomeView extends StatefulWidget {
 }
 
 class _CustomerHomeViewState extends State<CustomerHomeView> {
+  final MhgBaseViewModel _mhgBaseViewModel = MhgBaseViewModel();
+
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<CustomerHomeViewModel>.reactive(
@@ -23,37 +28,35 @@ class _CustomerHomeViewState extends State<CustomerHomeView> {
         child: Scaffold(
           backgroundColor: backgroundColour,
           appBar: AppBar(
-            //systemOverlayStyle: ,
-            /*systemOverlayStyle:
-                SystemUiOverlayStyle(statusBarColor: Colors.red),*/
             backgroundColor: Colors.white,
             foregroundColor: Colors.black,
             elevation: 0.0,
-            leading: buildIconButton(
-              padding: const EdgeInsets.all(8.0), //default from flutter
-              icon: buildIcon(icon: menuIcon, color: black),
-              onClickPrintOnConsole: 'MenuIconButton is pressed',
-            ),
             title: MhgAppBarTitleWidget(),
             actions: <Widget>[
-              buildIconButton(
-                padding: const EdgeInsets.all(4.0), //from default 8.0
+              IconButton(
+                padding: const EdgeInsets.fromLTRB(
+                    6.0, 2.0, 6.0, 2.0), //from default 8.0
                 icon: buildIcon(icon: cartIcon, color: black),
-                onClickPrintOnConsole: 'CartIconButton is pressed',
-              ),
+                onPressed: () => _mhgBaseViewModel.goToCartScreen(),
+              )
             ],
           ),
-          body: ListView(
-            children: <Widget>[
-              Container(
-                color: white,
-                child: build2ColumnTabBar(
-                  text4column1: artworkTxt,
-                  text4column2: deviceTxt,
-                  textStyle: textStyleBlackBold16,
+          drawer: NavDrawer(mhgBaseViewModel: _mhgBaseViewModel),
+          body: SizedBox.expand(
+            //height: 800.0,
+            child: ListView(
+              children: <Widget>[
+                Container(
+                  color: white,
+                  child: build2ColumnTabBar(
+                    text4column1: artworkTxt,
+                    text4column2: deviceTxt,
+                    textStyle: textStyleBlackBold16,
+                  ),
                 ),
-              ),
-            ],
+                Build3ColumnTierTabBar(),
+              ],
+            ),
           ),
         ),
       ),

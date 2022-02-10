@@ -23,4 +23,28 @@ class MhgBaseViewModel extends BaseViewModel {
       print('The button you click doesn\'t know d screen to navigateTo');
     }
   }
+
+  void goToUserAccessScreen() {
+    navService.navigateTo(Routes.userAccessView);
+  }
+
+  void goToOrderHistoryScreen() {
+    navService.navigateTo(Routes.orderHistoryView);
+  }
+
+  void goToSavedItemScreen() {
+    navService.navigateTo(Routes.savedItemsView);
+  }
+
+  void goToAccountSettingsScreen() {
+    navService.navigateTo(Routes.accountSettingsView);
+  }
+
+  void goToHelpScreen() {
+    navService.navigateTo(Routes.helpView);
+  }
+
+  void goToCartScreen() {
+    navService.navigateTo(Routes.cartView);
+  }
 }

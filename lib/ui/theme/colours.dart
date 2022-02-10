@@ -17,4 +17,7 @@ const onErrorColour = Colors.white;
 // Custom Colours
 const white = Colors.white;
 const grey = Color(0xffbababa);
+const greyLike = Color(0xffC4C4C4);
+const greyDark = Color(0xff7F7F7F);
 const black = Colors.black;
+const yellow = Color(0xffFFC120); //Used by star rating icon

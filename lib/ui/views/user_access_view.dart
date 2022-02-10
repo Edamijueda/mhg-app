@@ -3,6 +3,7 @@ import 'package:mhg/constants.dart';
 import 'package:mhg/core/models/user_access_view_model.dart';
 import 'package:mhg/ui/theme/colours.dart';
 import 'package:mhg/ui/theme/typography.dart';
+import 'package:mhg/ui/views/reusable_views_components.dart';
 import 'package:stacked/stacked.dart';
 import 'helpers/reusable_widgets.dart';
 
@@ -61,11 +62,15 @@ class _UserAccessViewState extends State<UserAccessView> {
                         height: 160.0,
                       ),
                       buildCustomTextField(
+                        sizeOfTF: sizeW326H50,
+                        tfPadding: symPaddingVert8Hor36,
                         hintText: emailHintText,
                         prefixIcon: buildIcon(icon: emailIcon, color: grey),
                         textInputType: TextInputType.emailAddress,
                       ),
                       buildCustomTextField(
+                        sizeOfTF: sizeW326H50,
+                        tfPadding: symPaddingVert8Hor36,
                         hintText: passwordHintText,
                         prefixIcon: buildIcon(icon: passwordIcon, color: grey),
                         obscureText: true,

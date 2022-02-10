@@ -1,16 +1,17 @@
-// If you use the stack package b4 now u will notice dat we use d AutoRoute package
-// Dart is about 2 change & we wouldn't be using it anymore. It functionality has
-// now been built in2 our stack package. The below info will now allow us to define
-// our route for our app using our stack package with no external dependencies
-import 'package:mhg/ui/views/customer_home_view.dart';
-import 'package:mhg/ui/views/retailer_home_view.dart';
+// This class StackedApp takes in a list of route which uses d same route dart d
+// auto_route package has defined, with slight name changes.
+import 'package:mhg/ui/views/account_settings/account_settings_view.dart';
+import 'package:mhg/ui/views/cart/cart_view.dart';
+import 'package:mhg/ui/views/customer_home/customer_home_view.dart';
+import 'package:mhg/ui/views/help/help_view.dart';
+import 'package:mhg/ui/views/order_history/order_history_view.dart';
+import 'package:mhg/ui/views/retail_home/retailer_home_view.dart';
+import 'package:mhg/ui/views/saved_items/saved_items_view.dart';
 import 'package:mhg/ui/views/signup_view.dart';
 import 'package:mhg/ui/views/user_access_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 
-// This class StackedApp takes in a list of route which uses d same route dart d
-// auto_route package has defined, with slight name changes.
 @StackedApp(
   routes: [
     MaterialRoute(
@@ -25,6 +26,21 @@ import 'package:stacked_services/stacked_services.dart';
     ),
     MaterialRoute(
       page: RetailerHomeView,
+    ),
+    MaterialRoute(
+      page: SavedItemsView,
+    ),
+    MaterialRoute(
+      page: AccountSettingsView,
+    ),
+    MaterialRoute(
+      page: CartView,
+    ),
+    MaterialRoute(
+      page: HelpView,
+    ),
+    MaterialRoute(
+      page: OrderHistoryView,
     ),
   ],
   dependencies: [

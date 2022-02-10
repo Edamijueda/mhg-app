@@ -1,9 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:mhg/app/app.locator.dart';
 import 'package:mhg/app/app.router.dart';
 import 'package:mhg/core/models/mhg_base_view_model.dart';
-import 'package:stacked/stacked.dart';
-import 'package:stacked_services/stacked_services.dart';
 
 // BUSINESS LOGIC AND INTERACTION WITH THE SERVICES
 // Once you change sth in dis viewModel you will be able to call notifyListener() which

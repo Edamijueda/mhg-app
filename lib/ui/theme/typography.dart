@@ -9,10 +9,42 @@ const hintTextStyle = TextStyle(
   letterSpacing: 0.2,
 ); // TextField hint
 
+const textStyle14FW400DarkGrey = TextStyle(
+  color: greyDark,
+  fontSize: 14.0,
+  fontStyle: FontStyle.normal,
+  fontWeight: FontWeight.normal,
+  letterSpacing: 0.2,
+);
+
+const textStyle14FW400White = TextStyle(
+  color: white,
+  fontSize: 14.0,
+  fontStyle: FontStyle.normal,
+  fontWeight: FontWeight.normal,
+  letterSpacing: 0.2,
+);
+
+const textStyle14FW400WithPColour = TextStyle(
+  color: primaryColour,
+  fontSize: 14.0,
+  fontStyle: FontStyle.normal,
+  fontWeight: FontWeight.normal,
+  letterSpacing: 0.2,
+);
+
 /*const iconStyle = TextStyle(
   color: Colors.black,
   fontSize: 24,
 ); // For ICONS*/
+
+const textStyle22Bold = TextStyle(
+  //color: white, // Undefine name 'context'
+  fontStyle: FontStyle.normal,
+  fontSize: 22.0,
+  fontWeight: FontWeight.bold,
+  letterSpacing: 0.2,
+);
 
 const appNameTextStyle = TextStyle(
   color: white, // Undefine name 'context'
@@ -23,8 +55,7 @@ const appNameTextStyle = TextStyle(
   height: 0.9,
 ); // Used by: appName
 
-const textStyleWhiteBold14 = TextStyle(
-  //color: Colors.black,
+const textStyle14Bold = TextStyle(
   fontStyle: FontStyle.normal,
   fontSize: 14.0,
   fontWeight: FontWeight.bold,
@@ -41,21 +72,27 @@ const tosTextStyleWhiteReg9 = TextStyle(
   height: 0.9,
 );
 
+const textStyle11FW400 = TextStyle(
+  fontStyle: FontStyle.normal,
+  fontSize: 11.0,
+  fontWeight: FontWeight.normal,
+  letterSpacing: 0.2,
+  //height: 0.9,
+);
+
 const textButtonTextStyle = TextStyle(
   fontStyle: FontStyle.normal,
   fontSize: 14.0,
   fontWeight: FontWeight.bold,
   letterSpacing: 0.2,
-  //height: 0.9,
 ); // TextButton textStyle
 
-const elevatedButtonTextStyle = TextStyle(
+const textStyle10Normal = TextStyle(
   fontStyle: FontStyle.normal,
-  fontSize: 16.0,
-  fontWeight: FontWeight.bold,
+  fontSize: 10.0,
+  fontWeight: FontWeight.normal,
   letterSpacing: 0.2,
-  //height: 0.9,
-); // ElevatedButton textStyle
+);
 
 const uploadEBTextStyle = TextStyle(
   fontStyle: FontStyle.normal,
@@ -65,14 +102,22 @@ const uploadEBTextStyle = TextStyle(
   //height: 0.9,
 ); // El
 
-const textStyleWhiteNormal14 = TextStyle(
-  color: white,
+const textStyle12Medium = TextStyle(
+  fontStyle: FontStyle.normal,
+  fontSize: 12.0,
+  fontWeight: FontWeight.w500,
+  letterSpacing: 0.2,
+);
+
+//His not being used yet
+/*const textStyle14FW400 = TextStyle(
+  //color: white,
   fontStyle: FontStyle.normal,
   fontSize: 14.0,
   fontWeight: FontWeight.normal,
   letterSpacing: 0.2,
   height: 0.9,
-);
+);*/
 
 const textStyleWhiteBold16 = TextStyle(
   color: white,
@@ -90,4 +135,27 @@ const textStyleBlackBold16 = TextStyle(
   fontWeight: FontWeight.bold,
   letterSpacing: 0.2,
   height: 0.9,
-); //
+);
+
+const textStyle16FW400 = TextStyle(
+  fontStyle: FontStyle.normal,
+  fontSize: 16.0,
+  fontWeight: FontWeight.normal,
+  letterSpacing: 0.2,
+);
+
+const textStyle16Bold = TextStyle(
+  fontStyle: FontStyle.normal,
+  fontSize: 16.0,
+  fontWeight: FontWeight.bold,
+  letterSpacing: 0.2,
+  //height: 0.9,
+); // ElevatedButton textStyle
+
+const textStyle18Bold = TextStyle(
+  fontStyle: FontStyle.normal,
+  fontSize: 18.0,
+  fontWeight: FontWeight.bold,
+  letterSpacing: 0.2,
+  //height: 0.9,
+);

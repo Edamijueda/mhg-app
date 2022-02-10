@@ -60,17 +60,6 @@ class _SignUpViewState extends State<SignUpView> {
                             onClickPrintOnConsole: customerIconBtnHelpText,
                           ),
                         ),
-                        /* bottom: TabBar(
-                          //labelPadding: EdgeInsets.only(bottom: 80),
-                          tabs: <Widget>[
-                            Tab(
-                              child: buildTabRowLabel(textLabel: customer),
-                            ),
-                            Tab(
-                              child: buildTabRowLabel(textLabel: retailer),
-                            ),
-                          ],
-                        ),*/
                       ),
                     ),
                   ),
