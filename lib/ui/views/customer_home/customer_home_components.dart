@@ -6,153 +6,9 @@ import 'package:mhg/ui/views/reusable_views_components.dart';
 
 import '../../../constants.dart';
 
-class Build3ColumnTierTabBar extends StatelessWidget {
-  const Build3ColumnTierTabBar({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 710.0, //710
-      child: TabBarView(
-        children: <Widget>[
-          ArtworkTabBarView(),
-          DeviceTabBarView(), // To handle DeviceTabBarView
-        ],
-      ),
-    );
-  }
-}
-
 ////////////////////////////////////////////////////////////////////////
 
-class ArtworkTabBarView extends StatelessWidget {
-  const ArtworkTabBarView({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: Column(
-        children: [
-          TiersTabBar(),
-          SizedBox(
-            height: 416.0, //90.0,
-            child: TabBarView(
-              children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TierImageContainer(tierDesc: 'First Tier\nImage Here'),
-                    Text(basicPkgTxt, style: textStyle16Bold),
-                    Text(
-                      whatYouGetTxt,
-                      style: textStyle12Medium,
-                    ),
-                    Text(
-                      '               -  An Artwork',
-                      style: textStyle10Normal,
-                    ),
-                    Text(
-                      '               -  One gift can of cannabis',
-                      style: textStyle10Normal,
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TierImageContainer(tierDesc: 'Second Tier\nImage Here'),
-                    Text(standPkgTxt, style: textStyle16Bold),
-                    Text(
-                      whatYouGetTxt,
-                      style: textStyle12Medium,
-                    ),
-                    Text(
-                      '               -  Medium Artwork',
-                      style: textStyle10Normal,
-                    ),
-                    Text(
-                      '               -  Two gift can of cannabis',
-                      style: textStyle10Normal,
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TierImageContainer(tierDesc: 'Third Tier\nImage Here'),
-                    Text(premPkgTxt, style: textStyle16Bold),
-                    Text(
-                      whatYouGetTxt,
-                      style: textStyle12Medium,
-                    ),
-                    Text(
-                      '               -  Large Artwork',
-                      style: textStyle10Normal,
-                    ),
-                    Text(
-                      '               -  Three gift can of cannabis',
-                      style: textStyle10Normal,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Divider(
-            color: greyLike,
-            indent: 20.0,
-            endIndent: 20.0,
-            thickness: 1.0,
-            height: 20.0,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0),
-                child: Text(
-                  'Choice of ArtWork',
-                  style: textStyle16FW400,
-                ),
-              ),
-              SizedBox(width: 150.0),
-              TextButton(
-                onPressed: () => print('See All btn press'),
-                child: Text(
-                  'See All',
-                  style: textStyle14FW400DarkGrey,
-                ),
-                style: TextButton.styleFrom(
-                  primary: greyDark,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 155.0,
-            child: ListView(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
-              scrollDirection: Axis.horizontal,
-              children: <Widget>[
-                ChooseArtwork(imageURL: 'lib/assets/guitar_artwork.png'),
-                ChooseArtwork(imageURL: 'lib/assets/mhg_bag_black.png'),
-                ChooseArtwork(imageURL: 'lib/assets/pet_image.png'),
-                ChooseArtwork(imageURL: 'lib/assets/jar_artwork.png'),
-                ChooseArtwork(imageURL: 'lib/assets/mhg_bag_milk_colour.png'),
-                ChooseArtwork(imageURL: 'lib/assets/mug_artwork.png'),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+////////////////////////////////////////////////////////////////////////
 
 class ChooseArtwork extends StatelessWidget {
   final String imageURL;
@@ -177,6 +33,10 @@ class ChooseArtwork extends StatelessWidget {
     );
   }
 }
+
+////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////
 
 class TierImageContainer extends StatelessWidget {
   final String tierDesc;
@@ -219,6 +79,8 @@ class TierImageContainer extends StatelessWidget {
 
 ////////////////////////////////////////////////////////////////////////
 
+////////////////////////////////////////////////////////////////////////
+
 class TiersTabBar extends StatelessWidget {
   const TiersTabBar({
     Key? key,
@@ -251,6 +113,150 @@ class TiersTabBar extends StatelessWidget {
 
 ////////////////////////////////////////////////////////////////////////
 
+////////////////////////////////////////////////////////////////////////
+
+class ArtworkTabBarView extends StatelessWidget {
+  const ArtworkTabBarView({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 3,
+      child: Column(
+        children: [
+          TiersTabBar(),
+          Expanded(
+            child: ListView(
+              children: [
+                SizedBox(
+                  height: 416.0, //90.0,
+                  child: TabBarView(
+                    children: <Widget>[
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TierImageContainer(
+                              tierDesc: 'First Tier\nImage Here'),
+                          Text(basicPkgTxt, style: textStyle16Bold),
+                          Text(
+                            whatYouGetTxt,
+                            style: textStyle12Medium,
+                          ),
+                          Text(
+                            '               -  An Artwork',
+                            style: textStyle10Normal,
+                          ),
+                          Text(
+                            '               -  One gift can of cannabis',
+                            style: textStyle10Normal,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TierImageContainer(
+                              tierDesc: 'Second Tier\nImage Here'),
+                          Text(standPkgTxt, style: textStyle16Bold),
+                          Text(
+                            whatYouGetTxt,
+                            style: textStyle12Medium,
+                          ),
+                          Text(
+                            '               -  Medium Artwork',
+                            style: textStyle10Normal,
+                          ),
+                          Text(
+                            '               -  Two gift can of cannabis',
+                            style: textStyle10Normal,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TierImageContainer(
+                              tierDesc: 'Third Tier\nImage Here'),
+                          Text(premPkgTxt, style: textStyle16Bold),
+                          Text(
+                            whatYouGetTxt,
+                            style: textStyle12Medium,
+                          ),
+                          Text(
+                            '               -  Large Artwork',
+                            style: textStyle10Normal,
+                          ),
+                          Text(
+                            '               -  Three gift can of cannabis',
+                            style: textStyle10Normal,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Divider(
+                  color: greyLike,
+                  indent: 20.0,
+                  endIndent: 20.0,
+                  thickness: 1.0,
+                  height: 20.0,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: Text(
+                        'Choice of ArtWork',
+                        style: textStyle16FW400,
+                      ),
+                    ),
+                    SizedBox(width: 150.0),
+                    TextButton(
+                      onPressed: () => print('See All btn press'),
+                      child: Text(
+                        'See All',
+                        style: textStyle14FW400DarkGrey,
+                      ),
+                      style: TextButton.styleFrom(
+                        primary: greyDark,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  //height: MediaQuery.of(context).size.height,
+                  height: 155.0,
+                  child: ListView(
+                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      ChooseArtwork(imageURL: 'lib/assets/guitar_artwork.png'),
+                      ChooseArtwork(imageURL: 'lib/assets/mhg_bag_black.png'),
+                      ChooseArtwork(imageURL: 'lib/assets/pet_image.png'),
+                      ChooseArtwork(imageURL: 'lib/assets/jar_artwork.png'),
+                      ChooseArtwork(
+                          imageURL: 'lib/assets/mhg_bag_milk_colour.png'),
+                      ChooseArtwork(imageURL: 'lib/assets/mug_artwork.png'),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////
+
 class DeviceTabBarView extends StatelessWidget {
   const DeviceTabBarView({
     Key? key,
@@ -267,561 +273,543 @@ class DeviceTabBarView extends StatelessWidget {
       Tab(text: 'Dab Rings'),
       Tab(text: 'Bubblers'),
     ];
-    return Column(
-      children: <Widget>[
-        buildCustomTextField(
-          sizeOfTF: sizeW326H30,
-          tfPadding: EdgeInsets.only(top: 25.0, bottom: 15.0),
-          hintTS: TextStyle(
-            fontSize: 12.0,
-            color: grey,
-            fontStyle: FontStyle.normal,
-            fontWeight: FontWeight.normal,
-            letterSpacing: 0.2,
+    return DefaultTabController(
+      length: tabs.length,
+      child: Column(
+        children: <Widget>[
+          buildCustomTextField(
+            sizeOfTF: sizeW326H30,
+            tfPadding: EdgeInsets.only(top: 15.0, bottom: 5.0), // 25/15
+            hintTS: TextStyle(
+              fontSize: 12.0,
+              color: grey,
+              fontStyle: FontStyle.normal,
+              fontWeight: FontWeight.normal,
+              letterSpacing: 0.2,
+            ),
+            hintText: searchItemHintTxt,
+            prefixIcon: buildIcon(icon: searchIcon, color: grey, size: 20.0),
           ),
-          hintText: searchItemHintTxt,
-          prefixIcon: buildIcon(icon: searchIcon, color: grey, size: 20.0),
-        ),
-        DefaultTabController(
-          length: tabs.length,
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: 10.0, right: 10.0, bottom: 10.0),
-                child: TabBar(
-                  padding: const EdgeInsets.fromLTRB(20.0, 8.0, 20.0, 0.0),
-                  indicatorPadding: const EdgeInsets.symmetric(
-                    horizontal: 8.0,
-                    vertical: 10.0,
-                  ),
-                  labelPadding: const EdgeInsets.only(left: 25.0, right: 25.0),
-                  unselectedLabelColor: greyDark,
-                  unselectedLabelStyle: textStyle14FW400DarkGrey,
-                  labelStyle: textStyle14FW400DarkGrey,
-                  labelColor: white,
-                  indicator: BoxDecoration(
-                    color: primaryColour,
-                    borderRadius: BorderRadius.circular(14.0),
-                  ),
-                  tabs: tabs,
-                  isScrollable: true,
-                ),
+          Padding(
+            padding:
+                const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 7.0),
+            child: TabBar(
+              padding: const EdgeInsets.fromLTRB(20.0, 8.0, 20.0, 0.0),
+              indicatorPadding: const EdgeInsets.symmetric(
+                horizontal: 8.0,
+                vertical: 10.0,
               ),
-              SizedBox(
-                height: 495.0,
-                child: Container(
-                  //color: Colors.purple[100], //Colors.purple,
-                  child: TabBarView(
-                    children: <Widget>[
-                      GridView.count(
-                        crossAxisCount: 3,
-                        childAspectRatio: 0.6, //0.7, //(1 / 2)
-                        mainAxisSpacing: 15.0,
-                        crossAxisSpacing: 6.0,
-                        padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-                        children: <Widget>[
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/electric_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/herb_grinder.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource:
-                                'lib/assets/otto_mill_fill_grinder.png',
-                            deviceName: ottoMillFillGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/rok_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/stash_jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/mill_and_fill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/dab_ring.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/herb_grinder.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource:
-                                'lib/assets/otto_mill_fill_grinder.png',
-                            deviceName: ottoMillFillGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/rok_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                        ],
-                      ),
-                      GridView.count(
-                        crossAxisCount: 3,
-                        childAspectRatio: 0.6, //0.7, //(1 / 2)
-                        mainAxisSpacing: 15.0,
-                        crossAxisSpacing: 6.0,
-                        padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-                        children: <Widget>[
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/herb_grinder.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource:
-                                'lib/assets/otto_mill_fill_grinder.png',
-                            deviceName: ottoMillFillGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/rok_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/stash_jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/mill_and_fill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/electric_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/dab_ring.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/herb_grinder.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource:
-                                'lib/assets/otto_mill_fill_grinder.png',
-                            deviceName: ottoMillFillGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/rok_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                        ],
-                      ),
-                      GridView.count(
-                        crossAxisCount: 3,
-                        childAspectRatio: 0.6, //0.7, //(1 / 2)
-                        mainAxisSpacing: 15.0,
-                        crossAxisSpacing: 6.0,
-                        padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-                        children: <Widget>[
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/electric_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/herb_grinder.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource:
-                                'lib/assets/otto_mill_fill_grinder.png',
-                            deviceName: ottoMillFillGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/rok_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/stash_jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/rok_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/mill_and_fill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/dab_ring.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/herb_grinder.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource:
-                                'lib/assets/otto_mill_fill_grinder.png',
-                            deviceName: ottoMillFillGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                        ],
-                      ),
-                      GridView.count(
-                        crossAxisCount: 3,
-                        childAspectRatio: 0.6, //0.7, //(1 / 2)
-                        mainAxisSpacing: 15.0,
-                        crossAxisSpacing: 6.0,
-                        padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-                        children: <Widget>[
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/electric_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/herb_grinder.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/rok_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/stash_jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/mill_and_fill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/dab_ring.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/herb_grinder.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource:
-                                'lib/assets/otto_mill_fill_grinder.png',
-                            deviceName: ottoMillFillGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/rok_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource:
-                                'lib/assets/otto_mill_fill_grinder.png',
-                            deviceName: ottoMillFillGrinderTxt,
-                          ),
-                        ],
-                      ),
-                      GridView.count(
-                        crossAxisCount: 3,
-                        childAspectRatio: 0.6, //0.7, //(1 / 2)
-                        mainAxisSpacing: 15.0,
-                        crossAxisSpacing: 6.0,
-                        padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-                        children: <Widget>[
-                          DeviceDetailsCard(
-                            imageSource:
-                                'lib/assets/otto_mill_fill_grinder.png',
-                            deviceName: ottoMillFillGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/rok_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/mill_and_fill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/electric_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/herb_grinder.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/stash_jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/dab_ring.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/herb_grinder.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource:
-                                'lib/assets/otto_mill_fill_grinder.png',
-                            deviceName: ottoMillFillGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/rok_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                        ],
-                      ),
-                      GridView.count(
-                        crossAxisCount: 3,
-                        childAspectRatio: 0.6, //0.7, //(1 / 2)
-                        mainAxisSpacing: 15.0,
-                        crossAxisSpacing: 6.0,
-                        padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-                        children: <Widget>[
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/electric_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/herb_grinder.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource:
-                                'lib/assets/otto_mill_fill_grinder.png',
-                            deviceName: ottoMillFillGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/rok_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/stash_jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/mill_and_fill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/dab_ring.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/herb_grinder.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource:
-                                'lib/assets/otto_mill_fill_grinder.png',
-                            deviceName: ottoMillFillGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/rok_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                        ],
-                      ),
-                      GridView.count(
-                        crossAxisCount: 3,
-                        childAspectRatio: 0.6, //0.7, //(1 / 2)
-                        mainAxisSpacing: 15.0,
-                        crossAxisSpacing: 6.0,
-                        padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-                        children: <Widget>[
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/electric_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/herb_grinder.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource:
-                                'lib/assets/otto_mill_fill_grinder.png',
-                            deviceName: ottoMillFillGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/rok_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/stash_jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/mill_and_fill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/dab_ring.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/herb_grinder.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource:
-                                'lib/assets/otto_mill_fill_grinder.png',
-                            deviceName: ottoMillFillGrinderTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/rok_dab_rig.png',
-                            deviceName: electricDabRigTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/otto_mill.png',
-                            deviceName: ottoMillAndFillTxt,
-                          ),
-                          DeviceDetailsCard(
-                            imageSource: 'lib/assets/jar.png',
-                            deviceName: herbGrinderTxt,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
+              labelPadding: const EdgeInsets.only(left: 25.0, right: 25.0),
+              unselectedLabelColor: greyDark,
+              unselectedLabelStyle: textStyle14FW400DarkGrey,
+              labelStyle: textStyle14FW400DarkGrey,
+              labelColor: white,
+              indicator: BoxDecoration(
+                color: primaryColour,
+                borderRadius: BorderRadius.circular(14.0),
               ),
-            ],
+              tabs: tabs,
+              isScrollable: true,
+            ),
           ),
-        ),
-      ],
+          Expanded(
+            child: TabBarView(
+              children: <Widget>[
+                GridView.count(
+                  crossAxisCount: 3,
+                  childAspectRatio: 0.6, //0.7, //(1 / 2)
+                  mainAxisSpacing: 15.0,
+                  crossAxisSpacing: 6.0,
+                  padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+                  children: <Widget>[
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/electric_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/herb_grinder.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill_fill_grinder.png',
+                      deviceName: ottoMillFillGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/rok_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/stash_jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/mill_and_fill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/dab_ring.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/herb_grinder.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill_fill_grinder.png',
+                      deviceName: ottoMillFillGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/rok_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                  ],
+                ),
+                GridView.count(
+                  crossAxisCount: 3,
+                  childAspectRatio: 0.6, //0.7, //(1 / 2)
+                  mainAxisSpacing: 15.0,
+                  crossAxisSpacing: 6.0,
+                  padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+                  children: <Widget>[
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/herb_grinder.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill_fill_grinder.png',
+                      deviceName: ottoMillFillGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/rok_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/stash_jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/mill_and_fill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/electric_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/dab_ring.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/herb_grinder.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill_fill_grinder.png',
+                      deviceName: ottoMillFillGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/rok_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                  ],
+                ),
+                GridView.count(
+                  crossAxisCount: 3,
+                  childAspectRatio: 0.6, //0.7, //(1 / 2)
+                  mainAxisSpacing: 15.0,
+                  crossAxisSpacing: 6.0,
+                  padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+                  children: <Widget>[
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/electric_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/herb_grinder.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill_fill_grinder.png',
+                      deviceName: ottoMillFillGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/rok_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/stash_jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/rok_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/mill_and_fill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/dab_ring.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/herb_grinder.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill_fill_grinder.png',
+                      deviceName: ottoMillFillGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                  ],
+                ),
+                GridView.count(
+                  crossAxisCount: 3,
+                  childAspectRatio: 0.6, //0.7, //(1 / 2)
+                  mainAxisSpacing: 15.0,
+                  crossAxisSpacing: 6.0,
+                  padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+                  children: <Widget>[
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/electric_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/herb_grinder.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/rok_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/stash_jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/mill_and_fill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/dab_ring.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/herb_grinder.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill_fill_grinder.png',
+                      deviceName: ottoMillFillGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/rok_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill_fill_grinder.png',
+                      deviceName: ottoMillFillGrinderTxt,
+                    ),
+                  ],
+                ),
+                GridView.count(
+                  crossAxisCount: 3,
+                  childAspectRatio: 0.6, //0.7, //(1 / 2)
+                  mainAxisSpacing: 15.0,
+                  crossAxisSpacing: 6.0,
+                  padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+                  children: <Widget>[
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill_fill_grinder.png',
+                      deviceName: ottoMillFillGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/rok_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/mill_and_fill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/electric_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/herb_grinder.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/stash_jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/dab_ring.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/herb_grinder.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill_fill_grinder.png',
+                      deviceName: ottoMillFillGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/rok_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                  ],
+                ),
+                GridView.count(
+                  crossAxisCount: 3,
+                  childAspectRatio: 0.6, //0.7, //(1 / 2)
+                  mainAxisSpacing: 15.0,
+                  crossAxisSpacing: 6.0,
+                  padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+                  children: <Widget>[
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/electric_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/herb_grinder.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill_fill_grinder.png',
+                      deviceName: ottoMillFillGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/rok_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/stash_jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/mill_and_fill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/dab_ring.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/herb_grinder.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill_fill_grinder.png',
+                      deviceName: ottoMillFillGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/rok_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                  ],
+                ),
+                GridView.count(
+                  crossAxisCount: 3,
+                  childAspectRatio: 0.6, //0.7, //(1 / 2)
+                  mainAxisSpacing: 15.0,
+                  crossAxisSpacing: 6.0,
+                  padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+                  children: <Widget>[
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/electric_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/herb_grinder.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill_fill_grinder.png',
+                      deviceName: ottoMillFillGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/rok_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/stash_jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/mill_and_fill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/dab_ring.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/herb_grinder.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill_fill_grinder.png',
+                      deviceName: ottoMillFillGrinderTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/rok_dab_rig.png',
+                      deviceName: electricDabRigTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/otto_mill.png',
+                      deviceName: ottoMillAndFillTxt,
+                    ),
+                    DeviceDetailsCard(
+                      imageSource: 'lib/assets/jar.png',
+                      deviceName: herbGrinderTxt,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
+
+////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////
 
 class DeviceDetailsCard extends StatelessWidget {
   final String imageSource;

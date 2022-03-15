@@ -26,11 +26,11 @@ class _CustomerHomeViewState extends State<CustomerHomeView> {
       builder: (context, model, child) => DefaultTabController(
         length: 2,
         child: Scaffold(
-          backgroundColor: backgroundColour,
+          backgroundColor: white,
           appBar: AppBar(
-            backgroundColor: Colors.white,
+            backgroundColor: white, //Colors.white,
             foregroundColor: Colors.black,
-            elevation: 0.0,
+            //elevation: 0.0,
             title: MhgAppBarTitleWidget(),
             actions: <Widget>[
               IconButton(
@@ -40,13 +40,62 @@ class _CustomerHomeViewState extends State<CustomerHomeView> {
                 onPressed: () => _mhgBaseViewModel.goToCartScreen(),
               )
             ],
+            bottom: build2ColumnTabBar(
+              text4column1: artworkTxt,
+              text4column2: deviceTxt,
+              textStyle: textStyleBlackBold16,
+            ),
           ),
           drawer: NavDrawer(mhgBaseViewModel: _mhgBaseViewModel),
-          body: SizedBox.expand(
-            //height: 800.0,
-            child: ListView(
-              children: <Widget>[
-                Container(
+          body: FractionallySizedBox(
+            heightFactor: 1.0,
+            widthFactor: 1.0,
+            child: Container(
+              decoration: BoxDecoration(
+                color: backgroundColour, //Colors.brown, //
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30.0),
+                  topRight: Radius.circular(30.0),
+                ),
+              ),
+              child: TabBarView(
+                children: [
+                  ArtworkTabBarView(),
+                  DeviceTabBarView(),
+                ],
+              ),
+            ),
+          ),
+          /*body: Column(
+            children: <Widget>[
+              Container(
+                color: white,
+                child: build2ColumnTabBar(
+                  text4column1: artworkTxt,
+                  text4column2: deviceTxt,
+                  textStyle: textStyleBlackBold16,
+                ),
+              ),
+              Expanded(child: Build3ColumnTierTabBar()),
+              */ /*Expanded(
+                  child: Container(
+                    color: Colors.blue,
+                  ),
+                ),
+                 Expanded(
+                  child: Container(
+                    color: Colors.purple,
+                  ),
+                ), */ /*
+            ],
+          ),*/
+        ),
+      ),
+    );
+  }
+}
+
+/*Container(
                   color: white,
                   child: build2ColumnTabBar(
                     text4column1: artworkTxt,
@@ -54,12 +103,4 @@ class _CustomerHomeViewState extends State<CustomerHomeView> {
                     textStyle: textStyleBlackBold16,
                   ),
                 ),
-                Build3ColumnTierTabBar(),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
+                Build3ColumnTierTabBar(),*/

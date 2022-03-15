@@ -2,7 +2,7 @@
     package="com.builders_lab.mhg.mhg">
    <application
         android:label="mhg"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/app_logo">   <!--ic_launcher-->
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

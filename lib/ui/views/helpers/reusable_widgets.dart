@@ -257,7 +257,7 @@ Column buildTabBarView({
               style: hintTextStyle,
             ),
             SizedBox(
-              width: 66.0,
+              width: 46.0, //prev used 66.0
             ),
             ElevatedButton(
               onPressed: () => print('Upload button pressed'),
@@ -439,7 +439,7 @@ TabBar build2ColumnTabBar({
   //required Color labelColour,
 }) {
   return TabBar(
-    labelPadding: EdgeInsets.only(left: 32.0, right: 32.0),
+    labelPadding: EdgeInsets.only(left: 26.0, right: 26.0), //prev 10.0
     padding: EdgeInsets.only(bottom: 10.0),
     tabs: <Widget>[
       Center(

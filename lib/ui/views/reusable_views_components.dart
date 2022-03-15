@@ -54,11 +54,10 @@ class NavDrawer extends StatelessWidget {
         // Important: Remove any padding from the ListView.
         padding: EdgeInsets.zero,
         children: [
-          DrawerHeader(
-            /*decoration: BoxDecoration(
-              color: Colors.blue,
-            ),*/
+          Padding(
+            padding: const EdgeInsets.only(top: 70.0, left: 20.0),
             child: Row(
+              //mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CircleAvatar(
                   radius: 40.0,
@@ -82,6 +81,7 @@ class NavDrawer extends StatelessWidget {
             indent: 20.0,
             endIndent: 20.0,
             thickness: 1.0,
+            height: 40.0,
           ),
           ListTile(
             //style: textStyle14FW400White,
@@ -166,6 +166,7 @@ class NavDrawer extends StatelessWidget {
             indent: 20.0,
             endIndent: 20.0,
             thickness: 1.0,
+            height: 40.0,
           ),
           Center(
               child: Text(

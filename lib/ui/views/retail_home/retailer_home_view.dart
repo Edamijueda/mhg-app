@@ -52,9 +52,14 @@ enum Extracts {
   distillate,
 }
 
-enum GearsAndMerch { art, tShirt, hoodies, accessories, socks, rollingVaper }
-
-//MhgBaseViewModel _mhgBaseViewModel = MhgBaseViewModel();
+enum GearsAndMerch {
+  art,
+  tShirt,
+  hoodies,
+  accessories,
+  socks,
+  rollingVaper,
+}
 
 class RetailerHomeView extends StatefulWidget {
   const RetailerHomeView({Key? key}) : super(key: key);
@@ -797,14 +802,6 @@ class _RetailerHomeViewState extends State<RetailerHomeView>
         _selectedIndex = _controller.index;
       });
     });*/
-
-    /*List<String> retailCat = [
-      flowerTxt,
-      cartTxt,
-      edibleTxt,
-      extractorTxt,
-      gearTxt
-    ];*/
     return ViewModelBuilder<RetailerHomeViewModel>.reactive(
       viewModelBuilder: () => RetailerHomeViewModel(),
       builder: (context, model, child) => Scaffold(
@@ -813,12 +810,6 @@ class _RetailerHomeViewState extends State<RetailerHomeView>
           backgroundColor: Colors.transparent,
           foregroundColor: Colors.black,
           elevation: 0.0,
-          /*leading: buildIconButton(
-            padding: const EdgeInsets.fromLTRB(
-                6.0, 2.0, 6.0, 2.0), //8.0 default from flutter
-            icon: buildIcon(icon: menuIcon, color: black),
-            onClickPrintOnConsole: 'MenuIconButton is pressed',
-          ),*/
           title: MhgAppBarTitleWidget(),
           actions: <Widget>[
             IconButton(
@@ -830,268 +821,242 @@ class _RetailerHomeViewState extends State<RetailerHomeView>
           ],
         ),
         drawer: NavDrawer(mhgBaseViewModel: _mhgBaseViewModel),
-        body: Container(
-          padding: EdgeInsets.only(top: 15.0),
-          height: double.infinity,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: backgroundColour,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(30.0),
-              topRight: Radius.circular(30.0),
+        body: FractionallySizedBox(
+          heightFactor: 1.0,
+          widthFactor: 1.0,
+          child: Container(
+            padding: EdgeInsets.only(top: 15.0),
+            decoration: BoxDecoration(
+              color: backgroundColour,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30.0),
+                topRight: Radius.circular(30.0),
+              ),
             ),
-          ),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Row(
-                  //mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  //crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('Categories', style: textStyleBlackBold16),
-                        SizedBox(height: 10.0),
-                        Container(
-                          height: 3.0,
-                          width: 130.0,
-                          color: primaryColour,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: Row(
+                    //mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    //crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('Categories', style: textStyleBlackBold16),
+                          SizedBox(height: 10.0),
+                          Container(
+                            height: 3.0,
+                            width: 130.0,
+                            color: primaryColour,
+                          ),
+                        ],
+                      ),
+                      Spacer(),
+                      buildCustomTextField(
+                        sizeOfTF: sizeW165H30,
+                        tfPadding: EdgeInsets.only(top: 5.0, bottom: 5.0),
+                        hintTS: TextStyle(
+                          fontSize: 12.0,
+                          color: grey,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.normal,
+                          letterSpacing: 0.2,
                         ),
-                      ],
-                    ),
-                    Spacer(),
-                    buildCustomTextField(
-                      sizeOfTF: sizeW165H30,
-                      tfPadding: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                      hintTS: TextStyle(
-                        fontSize: 12.0,
-                        color: grey,
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.normal,
-                        letterSpacing: 0.2,
+                        hintText: searchItemHintTxt,
+                        prefixIcon: buildIcon(
+                            icon: searchIcon, color: grey, size: 20.0),
+                        inputBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: grey),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
                       ),
-                      hintText: searchItemHintTxt,
-                      prefixIcon:
-                          buildIcon(icon: searchIcon, color: grey, size: 20.0),
-                      inputBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: grey),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.only(left: 5.0, right: 5.0, bottom: 10.0),
-                child: TabBar(
-                  //onTap: (_selectedIndex) {},
-                  controller: _controller,
-                  padding: const EdgeInsets.fromLTRB(15.0, 8.0, 15.0, 0.0),
-                  indicatorPadding: const EdgeInsets.fromLTRB(
-                      5.0, 10.0, 15.0, 7.0), //8.0, 10.0, 18.0, 6.0
-                  labelPadding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                  //unselectedLabelColor: greyDark,
-                  //unselectedLabelStyle: textStyle14FW400DarkGrey,
-                  //labelStyle: textStyle14FW400DarkGrey,
-                  //labelColor: white,
-                  indicator: BoxDecoration(
-                    color: primaryColour,
-                    borderRadius: BorderRadius.circular(16.0),
+                    ],
                   ),
-                  tabs: [
-                    Tab(
-                      child: SizedBox(
-                        width: 100.0,
-                        child: ListTile(
-                          contentPadding: EdgeInsets.only(
-                              left: 8.0,
-                              right:
-                                  4.0), //EdgeInsets.symmetric(horizontal: 8.0),
-                          //Default contentPadding is --> EdgeInsets.symmetric(horizontal: 16.0)
-                          //horizontalTitleGap: 0.0,
-                          //minLeadingWidth: 0.0,
-                          //title: Text(flowerTxt),
-                          leading: Text(
-                            flowerTxt,
-                            style: (getTextFromSelectedTab() != flowerTxt)
-                                ? textStyle14FW400DarkGrey
-                                : textStyle14FW400White,
-                          ),
-                          trailing: (getTextFromSelectedTab() != flowerTxt)
-                              ? null
-                              : IconButton(
-                                  padding: const EdgeInsets.all(8.0),
-                                  icon: buildIcon(
-                                    icon: moreOptionIcon,
-                                    color: white,
-                                    size: iconBtnSize,
-                                  ),
-                                  onPressed: () => _selectFlowerSubCategory(),
-                                ),
-                        ),
-                      ),
-                    ),
-                    Tab(
-                      child: SizedBox(
-                        width: 90.0,
-                        child: ListTile(
-                          contentPadding: EdgeInsets.only(
-                              left: 8.0,
-                              right:
-                                  4.0), //EdgeInsets.symmetric(horizontal: 8.0),
-                          //Default contentPadding is --> EdgeInsets.symmetric(horizontal: 16.0)
-                          //horizontalTitleGap: 0.0,
-                          //minLeadingWidth: 0.0,
-                          //title: Text(flowerTxt),
-                          leading: Text(
-                            cartTxt,
-                            style: (getTextFromSelectedTab() != cartTxt)
-                                ? textStyle14FW400DarkGrey
-                                : textStyle14FW400White,
-                          ),
-                          trailing: (getTextFromSelectedTab() != cartTxt)
-                              ? null
-                              : IconButton(
-                                  padding: const EdgeInsets.all(8.0),
-                                  icon: buildIcon(
-                                    icon: moreOptionIcon,
-                                    color: white,
-                                    size: iconBtnSize,
-                                  ),
-                                  onPressed: () => _selectCartSubCategory(),
-                                ),
-                        ),
-                      ),
-                    ),
-                    Tab(
-                      child: SizedBox(
-                        width: 100.0,
-                        child: ListTile(
-                          contentPadding: EdgeInsets.only(
-                              left: 8.0,
-                              right:
-                                  4.0), //EdgeInsets.symmetric(horizontal: 8.0),
-                          //Default contentPadding is --> EdgeInsets.symmetric(horizontal: 16.0)
-                          //horizontalTitleGap: 0.0,
-                          //minLeadingWidth: 0.0,
-                          //title: Text(flowerTxt),
-                          leading: Text(
-                            edibleTxt,
-                            style: (getTextFromSelectedTab() != edibleTxt)
-                                ? textStyle14FW400DarkGrey
-                                : textStyle14FW400White,
-                          ),
-                          trailing: (getTextFromSelectedTab() != edibleTxt)
-                              ? null
-                              : IconButton(
-                                  padding: const EdgeInsets.all(8.0),
-                                  icon: buildIcon(
-                                    icon: moreOptionIcon,
-                                    color: white,
-                                    size: iconBtnSize,
-                                  ),
-                                  onPressed: () => _selectEdibleSubCategory(),
-                                ),
-                        ),
-                      ),
-                    ),
-                    Tab(
-                      child: SizedBox(
-                        width: 108.0,
-                        child: ListTile(
-                          contentPadding: EdgeInsets.only(
-                              left: 8.0,
-                              right:
-                                  4.0), //EdgeInsets.symmetric(horizontal: 8.0),
-                          //Default contentPadding is --> EdgeInsets.symmetric(horizontal: 16.0)
-                          //horizontalTitleGap: 0.0,
-                          //minLeadingWidth: 0.0,
-                          //title: Text(flowerTxt),
-                          leading: Text(
-                            extractTxt,
-                            style: (getTextFromSelectedTab() != extractTxt)
-                                ? textStyle14FW400DarkGrey
-                                : textStyle14FW400White,
-                          ),
-                          trailing: (getTextFromSelectedTab() != extractTxt)
-                              ? null
-                              : IconButton(
-                                  padding: const EdgeInsets.all(8.0),
-                                  icon: buildIcon(
-                                    icon: moreOptionIcon,
-                                    color: white,
-                                    size: iconBtnSize,
-                                  ),
-                                  onPressed: () => _selectExtractSubCategory(),
-                                ),
-                        ),
-                      ),
-                    ),
-                    Tab(
-                      child: SizedBox(
-                        width: 145.0,
-                        child: ListTile(
-                          contentPadding: EdgeInsets.only(
-                              left: 8.0,
-                              right:
-                                  4.0), //EdgeInsets.symmetric(horizontal: 8.0),
-                          //Default contentPadding is --> EdgeInsets.symmetric(horizontal: 16.0)
-                          //horizontalTitleGap: 0.0,
-                          //minLeadingWidth: 0.0,
-                          //title: Text(flowerTxt),
-                          leading: Text(
-                            gearTxt,
-                            style: (getTextFromSelectedTab() != gearTxt)
-                                ? textStyle14FW400DarkGrey
-                                : textStyle14FW400White,
-                          ),
-                          trailing: (getTextFromSelectedTab() != gearTxt)
-                              ? null
-                              : IconButton(
-                                  padding: const EdgeInsets.all(8.0),
-                                  icon: buildIcon(
-                                    icon: moreOptionIcon,
-                                    color: white,
-                                    size: iconBtnSize,
-                                  ),
-                                  onPressed: () =>
-                                      _selectGearAndMerchSubCategory(),
-                                ),
-                        ),
-                      ),
-                    ),
-                  ],
-                  isScrollable: true,
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 38.0, bottom: 15.0),
-                child: Row(
-                  children: [
-                    Text(
-                      getTextFromSelectedTab(),
-                      //'Testing',
-                      //getTextFromSelectedTab(),
-                      style: textStyle14FW400WithPColour,
-                    ),
-                    buildIcon(
-                      icon: doubleArrowIcon,
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 5.0, right: 5.0, bottom: 10.0),
+                  child: TabBar(
+                    controller: _controller,
+                    padding: const EdgeInsets.fromLTRB(15.0, 8.0, 15.0, 0.0),
+                    indicatorPadding: const EdgeInsets.fromLTRB(
+                        5.0, 10.0, 15.0, 7.0), //8.0, 10.0, 18.0, 6.0
+                    labelPadding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                    indicator: BoxDecoration(
                       color: primaryColour,
-                      size: 14.0,
+                      borderRadius: BorderRadius.circular(16.0),
                     ),
-                    Text(_getSelectedSubCat(),
-                        style: textStyle14FW400WithPColour),
-                  ],
+                    tabs: [
+                      Tab(
+                        child: SizedBox(
+                          width: 100.0,
+                          child: ListTile(
+                            contentPadding: EdgeInsets.only(
+                                left: 8.0,
+                                right:
+                                    4.0), //EdgeInsets.symmetric(horizontal: 8.0),
+                            leading: Text(
+                              flowerTxt,
+                              style: (getTextFromSelectedTab() != flowerTxt)
+                                  ? textStyle14FW400DarkGrey
+                                  : textStyle14FW400White,
+                            ),
+                            trailing: (getTextFromSelectedTab() != flowerTxt)
+                                ? null
+                                : IconButton(
+                                    padding: const EdgeInsets.all(8.0),
+                                    icon: buildIcon(
+                                      icon: moreOptionIcon,
+                                      color: white,
+                                      size: iconBtnSize,
+                                    ),
+                                    onPressed: () => _selectFlowerSubCategory(),
+                                  ),
+                          ),
+                        ),
+                      ),
+                      Tab(
+                        child: SizedBox(
+                          width: 90.0,
+                          child: ListTile(
+                            contentPadding: EdgeInsets.only(
+                                left: 8.0,
+                                right:
+                                    4.0), //EdgeInsets.symmetric(horizontal: 8.0),
+                            leading: Text(
+                              cartTxt,
+                              style: (getTextFromSelectedTab() != cartTxt)
+                                  ? textStyle14FW400DarkGrey
+                                  : textStyle14FW400White,
+                            ),
+                            trailing: (getTextFromSelectedTab() != cartTxt)
+                                ? null
+                                : IconButton(
+                                    padding: const EdgeInsets.all(8.0),
+                                    icon: buildIcon(
+                                      icon: moreOptionIcon,
+                                      color: white,
+                                      size: iconBtnSize,
+                                    ),
+                                    onPressed: () => _selectCartSubCategory(),
+                                  ),
+                          ),
+                        ),
+                      ),
+                      Tab(
+                        child: SizedBox(
+                          width: 100.0,
+                          child: ListTile(
+                            contentPadding: EdgeInsets.only(
+                                left: 8.0,
+                                right:
+                                    4.0), //EdgeInsets.symmetric(horizontal: 8.0),
+                            leading: Text(
+                              edibleTxt,
+                              style: (getTextFromSelectedTab() != edibleTxt)
+                                  ? textStyle14FW400DarkGrey
+                                  : textStyle14FW400White,
+                            ),
+                            trailing: (getTextFromSelectedTab() != edibleTxt)
+                                ? null
+                                : IconButton(
+                                    padding: const EdgeInsets.all(8.0),
+                                    icon: buildIcon(
+                                      icon: moreOptionIcon,
+                                      color: white,
+                                      size: iconBtnSize,
+                                    ),
+                                    onPressed: () => _selectEdibleSubCategory(),
+                                  ),
+                          ),
+                        ),
+                      ),
+                      Tab(
+                        child: SizedBox(
+                          width: 108.0,
+                          child: ListTile(
+                            contentPadding: EdgeInsets.only(
+                                left: 8.0,
+                                right:
+                                    4.0), //EdgeInsets.symmetric(horizontal: 8.0),
+                            leading: Text(
+                              extractTxt,
+                              style: (getTextFromSelectedTab() != extractTxt)
+                                  ? textStyle14FW400DarkGrey
+                                  : textStyle14FW400White,
+                            ),
+                            trailing: (getTextFromSelectedTab() != extractTxt)
+                                ? null
+                                : IconButton(
+                                    padding: const EdgeInsets.all(8.0),
+                                    icon: buildIcon(
+                                      icon: moreOptionIcon,
+                                      color: white,
+                                      size: iconBtnSize,
+                                    ),
+                                    onPressed: () =>
+                                        _selectExtractSubCategory(),
+                                  ),
+                          ),
+                        ),
+                      ),
+                      Tab(
+                        child: SizedBox(
+                          width: 145.0,
+                          child: ListTile(
+                            contentPadding: EdgeInsets.only(
+                                left: 8.0,
+                                right:
+                                    4.0), //EdgeInsets.symmetric(horizontal: 8.0),
+                            leading: Text(
+                              gearTxt,
+                              style: (getTextFromSelectedTab() != gearTxt)
+                                  ? textStyle14FW400DarkGrey
+                                  : textStyle14FW400White,
+                            ),
+                            trailing: (getTextFromSelectedTab() != gearTxt)
+                                ? null
+                                : IconButton(
+                                    padding: const EdgeInsets.all(8.0),
+                                    icon: buildIcon(
+                                      icon: moreOptionIcon,
+                                      color: white,
+                                      size: iconBtnSize,
+                                    ),
+                                    onPressed: () =>
+                                        _selectGearAndMerchSubCategory(),
+                                  ),
+                          ),
+                        ),
+                      ),
+                    ],
+                    isScrollable: true,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 500.0,
-                child: Container(
-                  //color: Colors.purple[100], //Colors.purple,
+                Padding(
+                  padding: const EdgeInsets.only(left: 38.0, bottom: 15.0),
+                  child: Row(
+                    children: [
+                      Text(
+                        getTextFromSelectedTab(),
+                        //'Testing',
+                        //getTextFromSelectedTab(),
+                        style: textStyle14FW400WithPColour,
+                      ),
+                      buildIcon(
+                        icon: doubleArrowIcon,
+                        color: primaryColour,
+                        size: 14.0,
+                      ),
+                      Text(_getSelectedSubCat(),
+                          style: textStyle14FW400WithPColour),
+                    ],
+                  ),
+                ),
+                Expanded(
                   child: TabBarView(
                     controller: _controller,
                     children: <Widget>[
@@ -1453,8 +1418,8 @@ class _RetailerHomeViewState extends State<RetailerHomeView>
                     ],
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
